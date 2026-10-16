@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020" role="img" aria-labelledby="title desc">
+<title id="title">현재 예시 데이터베이스 구조</title>
+<desc id="desc">테이블 생성 노트북에 정의된 쇼핑몰과 고객상담 관련 26개 테이블의 업무별 구성입니다. 화살표는 주요 연결을 요약하며 전체 외래키를 표시하지 않습니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#64748b"/></marker></defs>
+<style>text{font-family:'Malgun Gothic','Noto Sans KR',Arial,sans-serif;fill:#172554}.title{font-size:30px;font-weight:700}.heading{font-size:23px;font-weight:700}.body{font-size:20px}.small{font-size:17px;fill:#475569}.flow{fill:none;stroke:#64748b;stroke-width:2.5;marker-end:url(#arrow)}</style>
+<rect width="1440" height="1020" rx="20" fill="#f8fafc"/>
+<text x="60" y="60" class="title">현재 예시 DB 구조 · Supabase PostgreSQL</text>
+<text x="60" y="96" class="small">테이블 생성 노트북 기준: 26개 테이블 · 21개 인덱스 / 실제 DB 반영 상태는 별도 확인</text>
+<rect x="60" y="155" width="400" height="285" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="86" y="198" class="heading">고객 · 주소 / 2개</text>
+<text x="86" y="246" class="body">users · 고객</text>
+<text x="86" y="282" class="body">addresses · 고객 주소</text>
+<text x="86" y="406" class="small">고객 번호로 주문·문의·세션 연결</text>
+<rect x="520" y="155" width="400" height="285" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="546" y="198" class="heading">상품 · 재고 / 3개</text>
+<text x="546" y="246" class="body">categories · 상품 분류</text>
+<text x="546" y="282" class="body">products · 상품</text>
+<text x="546" y="318" class="body">inventory · 재고</text>
+<text x="546" y="406" class="small">상품 번호로 주문 상품·리뷰 연결</text>
+<rect x="980" y="155" width="400" height="285" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="1006" y="198" class="heading">주문 · 결제 · 배송 / 6개</text>
+<text x="1006" y="246" class="body">orders / order_items</text>
+<text x="1006" y="282" class="body">payments / shipping</text>
+<text x="1006" y="318" class="body">coupons / order_coupons</text>
+<text x="1006" y="406" class="small">주문·상품·결제·할인 내역 연결</text>
+<path d="M260 155 V126 H1180 V149" class="flow"/>
+<text x="612" y="120" class="small">고객의 주문</text>
+<path d="M920 300 H974" class="flow"/>
+<rect x="60" y="545" width="400" height="340" rx="16" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+<text x="86" y="588" class="heading">구매 후 처리 · 문의 / 5개</text>
+<text x="86" y="636" class="body">reviews · 리뷰</text>
+<text x="86" y="672" class="body">returns / return_items</text>
+<text x="86" y="708" class="body">support_tickets</text>
+<text x="86" y="744" class="body">ticket_messages</text>
+<text x="86" y="850" class="small">고객·주문·상품과 연결</text>
+<rect x="520" y="545" width="400" height="340" rx="16" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+<text x="546" y="588" class="heading">세션 · 대화 · 작업 / 3개</text>
+<text x="546" y="636" class="body">user_sessions</text>
+<text x="546" y="672" class="body">conversation_sessions</text>
+<text x="546" y="708" class="body">agent_tasks</text>
+<text x="546" y="850" class="small">고객·문의·대화 상태와 작업 기록</text>
+<rect x="980" y="545" width="400" height="340" rx="16" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+<text x="1006" y="588" class="heading">상담 운영 · AI 기록 / 7개</text>
+<text x="1006" y="630" class="body">cs_agents / knowledge_base</text>
+<text x="1006" y="666" class="body">sentiment_analysis</text>
+<text x="1006" y="702" class="body">escalation_rules</text>
+<text x="1006" y="738" class="body">escalation_events</text>
+<text x="1006" y="774" class="body">knowledge_usage / llm_responses</text>
+<text x="1006" y="850" class="small">상담원·지식·감정·이관·응답 기록</text>
+<path d="M1180 440 V488 H260 V539" class="flow"/>
+<text x="608" y="479" class="small">주문 관련 리뷰·반품·문의</text>
+<path d="M460 715 H514" class="flow"/>
+<path d="M920 715 H974" class="flow"/>
+<rect x="60" y="917" width="1320" height="72" rx="12" fill="#e2e8f0"/>
+<text x="84" y="947" class="small">화살표는 업무별 주요 연결 요약이며, 전체 외래키 관계를 표시한 ERD는 아닙니다.</text>
+<text x="84" y="974" class="small">현재 데이터는 가상 예시입니다. 실제 적용 시 사용자 DB에 맞춰 n8n 조회 설정·업무 규칙·필요 노드를 조정해야 합니다.</text>
+</svg>

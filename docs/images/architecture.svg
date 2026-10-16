@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1190" viewBox="0 0 1440 1190" role="img" aria-labelledby="title desc">
+<title id="title">Automatic Product Management 아키텍처</title>
+<desc id="desc">교체 가능한 입력 채널을 공통 요청으로 변환하고 n8n에서 DB와 AI로 처리한 뒤 출력 어댑터로 전달합니다. Chat과 Slack은 구현 예시이며 외부 채널은 어댑터로 연결합니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" /></marker></defs>
+<style>text{font-family:'Malgun Gothic','Noto Sans KR',Arial,sans-serif;fill:#172554}.title{font-size:32px;font-weight:700}.sub{font-size:18px;fill:#475569}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:16px;fill:#475569}.flow{fill:none;stroke:#64748b;stroke-width:2.5;marker-end:url(#arrow)}.dashed{stroke-dasharray:7 5}</style>
+<rect width="1440" height="1190" rx="20" fill="#f8fafc" />
+<text x="60" y="61" class="title">Automatic Product Management</text>
+<text x="60" y="96" class="sub">채널은 교체하고, 공통 업무 처리 흐름은 재사용합니다.</text>
+<text x="60" y="134" text-anchor="start" class="small">01  입력 채널</text>
+<rect x="60" y="150" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="210.0" y="184" text-anchor="middle" class="label">n8n Chat</text>
+<text x="210.0" y="214" text-anchor="middle" class="small">현재 구현</text>
+<path d="M 210 238 V 258 H 720 V 278" class="flow" />
+<rect x="400" y="150" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="550.0" y="184" text-anchor="middle" class="label">Slack</text>
+<text x="550.0" y="214" text-anchor="middle" class="small">현재 구현</text>
+<path d="M 550 238 V 258 H 720 V 278" class="flow" />
+<rect x="740" y="150" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5" />
+<text x="890.0" y="184" text-anchor="middle" class="label">웹 · 다른 메신저</text>
+<text x="890.0" y="214" text-anchor="middle" class="small">어댑터를 통해 확장</text>
+<path d="M 890 238 V 258 H 720 V 278" class="flow" />
+<rect x="1080" y="150" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5" />
+<text x="1230.0" y="184" text-anchor="middle" class="label">외부 시스템</text>
+<text x="1230.0" y="214" text-anchor="middle" class="small">다른 워크플로에서 호출</text>
+<path d="M 1230 238 V 258 H 720 V 278" class="flow" />
+<rect x="300" y="282" width="840" height="88" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="2" />
+<text x="720.0" y="316" text-anchor="middle" class="label">입력 어댑터 · 공통 요청 검증</text>
+<text x="720.0" y="346" text-anchor="middle" class="small">question · channel · replyTo · userId · sessionId</text>
+<path d="M 720 370 V 414" class="flow" />
+<rect x="60" y="420" width="1320" height="294" rx="18" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2" />
+<text x="88" y="458" text-anchor="start" class="label">02  공통 업무 처리  |  현재 실행 엔진: n8n</text>
+<rect x="90" y="478" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="280.0" y="512" text-anchor="middle" class="label">테이블 목록 조회</text>
+<text x="280.0" y="542" text-anchor="middle" class="small">DB 구조 확인</text>
+<rect x="530" y="478" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="720.0" y="512" text-anchor="middle" class="label">관련 테이블 선택</text>
+<text x="720.0" y="542" text-anchor="middle" class="small">AI + 구조화 출력</text>
+<rect x="970" y="478" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="1160.0" y="512" text-anchor="middle" class="label">스키마 조회</text>
+<text x="1160.0" y="542" text-anchor="middle" class="small">선택한 테이블의 컬럼</text>
+<path d="M 470 521 H 524" class="flow" />
+<path d="M 910 521 H 964" class="flow" />
+<path d="M 1160 564 V 594" class="flow" />
+<rect x="970" y="600" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="1160.0" y="634" text-anchor="middle" class="label">SQL 생성 · 기본 검사</text>
+<text x="1160.0" y="664" text-anchor="middle" class="small">AI 생성 + 사전 검사</text>
+<rect x="530" y="600" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="720.0" y="634" text-anchor="middle" class="label">DB 조회 · 결과 수집</text>
+<text x="720.0" y="664" text-anchor="middle" class="small">최대 100행</text>
+<rect x="90" y="600" width="380" height="86" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="280.0" y="634" text-anchor="middle" class="label">한국어 답변 생성</text>
+<text x="280.0" y="664" text-anchor="middle" class="small">AI가 조회 결과를 설명</text>
+<path d="M 970 643 H 916" class="flow" />
+<path d="M 530 643 H 476" class="flow" />
+<path d="M 280 686 V 738 H 720 V 764" class="flow" />
+<rect x="300" y="770" width="840" height="88" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="2" />
+<text x="720.0" y="804" text-anchor="middle" class="label">공통 응답 · 출력 어댑터</text>
+<text x="720.0" y="834" text-anchor="middle" class="small">answer와 목적지 전달 → 채널별 전송 방식 적용</text>
+<text x="60" y="899" text-anchor="start" class="small">03  출력 채널</text>
+<path d="M 720 858 V 886 H 210 V 912" class="flow" />
+<rect x="60" y="918" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="210.0" y="952" text-anchor="middle" class="label">n8n Chat</text>
+<text x="210.0" y="982" text-anchor="middle" class="small">채팅 화면으로 반환</text>
+<path d="M 720 858 V 886 H 550 V 912" class="flow" />
+<rect x="400" y="918" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+<text x="550.0" y="952" text-anchor="middle" class="label">Slack</text>
+<text x="550.0" y="982" text-anchor="middle" class="small">요청 채널에 직접 전송</text>
+<path d="M 720 858 V 886 H 890 V 912" class="flow" />
+<rect x="740" y="918" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5" />
+<text x="890.0" y="952" text-anchor="middle" class="label">웹 · 다른 메신저</text>
+<text x="890.0" y="982" text-anchor="middle" class="small">호출 워크플로에서 전송</text>
+<path d="M 720 858 V 886 H 1230 V 912" class="flow" />
+<rect x="1080" y="918" width="300" height="88" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 5" />
+<text x="1230.0" y="952" text-anchor="middle" class="label">외부 시스템</text>
+<text x="1230.0" y="982" text-anchor="middle" class="small">반환된 결과를 활용</text>
+<rect x="60" y="1040" width="1320" height="94" rx="14" fill="#e2e8f0" />
+<text x="85" y="1072" text-anchor="start" class="label">연결 자원 및 준비 도구</text>
+<text x="85" y="1105" text-anchor="start" class="body">Supabase PostgreSQL  ·  OpenAI API  ·  테이블 생성 노트북  ·  샘플 데이터 생성 Python</text>
+<text x="60" y="1168" text-anchor="start" class="small">실선: 현재 연결 예시  /  점선: 어댑터로 확장  /  다른 채널 간 전달은 호출자가 라우팅 구성</text>
+</svg>
